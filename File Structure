@@ -1,0 +1,126 @@
+snackify-store/
+├── index.html
+├── about.html
+├── css/
+│   └── styles.css
+├── js/
+│   └── main.js
+└── assets/
+    ├── logo.png
+    └── products/
+        ├── chips.jpg
+        ├── popcorn.jpg
+        └── trailmix.jpg
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Snackify Store</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/logo.png">
+</head>
+<body>
+  <header>
+    <h1><img src="assets/logo.png" alt="Snackify" class="logo"> Snackify</h1>
+    <nav><a href="index.html">Home</a> | <a href="about.html">About</a></nav>
+  </header>
+  <main>
+    <section class="products-grid">
+      <!-- Product Cards -->
+      <div class="product-card">
+        <img src="assets/products/chips.jpg" alt="Chips">
+        <h2>Classic Chips</h2>
+        <p>₹49.00</p>
+        <button onclick="addToCart('Classic Chips')">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="assets/products/popcorn.jpg" alt="Popcorn">
+        <h2>Buttery Popcorn</h2>
+        <p>₹59.00</p>
+        <button onclick="addToCart('Buttery Popcorn')">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="assets/products/trailmix.jpg" alt="Trail Mix">
+        <h2>Trail Mix Deluxe</h2>
+        <p>₹89.00</p>
+        <button onclick="addToCart('Trail Mix Deluxe')">Add to Cart</button>
+      </div>
+    </section>
+  </main>
+  <script src="js/main.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Snackify</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1><img src="assets/logo.png" alt="Snackify" class="logo"> Snackify</h1>
+    <nav><a href="index.html">Home</a> | <a href="about.html">About</a></nav>
+  </header>
+  <main class="about">
+    <h2>About Us</h2>
+    <p>Welcome to Snackify—your go-to snack shop with delicious chips, popcorn, and nut mixes. All snacks are fresh and bursting with flavor!</p>
+    <p>Contact us: <a href="mailto:info@snackify.com">info@snackify.com</a></p>
+  </main>
+</body>
+</html>
+:root {
+  --primary: #f7c948;
+  --accent: #d32f2f;
+  --text: #333;
+}
+
+body {
+  margin: 0; font-family: sans-serif; color: var(--text); background: #fff;
+}
+
+header {
+  background: var(--primary); padding: 0.5rem 1rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+header .logo { height: 40px; vertical-align: middle; }
+header nav a { margin-left: 1rem; color: #333; text-decoration: none; }
+
+.products-grid {
+  display: grid;
+  gap: 1rem;
+  padding: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.product-card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  text-align: center;
+  padding: 1rem;
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.product-card button {
+  background: var(--accent);
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.product-card button:hover {
+  background: darken(var(--accent), 10%);
+}
+
+.product-card button:focus {
+  outline: 2px solid #000;
+}
+function addToCart(item) {
+  alert(`✅ "${item}" added to cart!`);
+}
